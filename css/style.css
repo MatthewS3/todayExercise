@@ -1,0 +1,63 @@
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: rgb(4, 50, 2);
+}
+:root{
+    --primary: black;
+    --secondary: rgb(255, 255, 255);
+    --awesome: hsla(0, 100%, 50%, 0.7);
+}
+.container {
+    margin-block: 20px;
+    --numbOfRed: 123;
+    --numbOfOrange: 100;
+    --numbOfYellow: 18;
+    border-width: 5px 8px;
+    border-image: radial-gradient(120deg, var(--numbOfRed), var(--numbOfOrange), var(--numbOfYellow));
+}
+.container :is(#example1, #example2), 
+.button-wrapper {
+    display: flex;
+    gap: .6rem;
+}
+.container :is(#example2) {
+    flex-flow: row wrap;
+}
+.item {
+    display: grid;
+    grid-template-rows: 20rem 1fr auto;
+}
+.item>img{
+    width: 20rem;
+    aspect-ratio: 1/1;
+}
+.button-wrapper {
+    justify-content: space-between;
+}
+.button-wrapper button {
+    border: 3px solid;
+    border-image: linear-gradient( rgb(0, 0, 0), var(--awesome)) 11 fill;
+}
+.image-animation {
+    background: linear-gradient(to right, rgb(227, 3, 3), rgb(50, 6, 223));
+    height: 300px;
+}
+img[alt="Image"]{
+    width:17rem;
+    aspect-ratio: 5/5;
+    animation: animateLaptop 50s infinite;
+    transition: all 50s;
+}
+
+@keyframes animateLaptop {
+    from {
+       transform: translateX(0px);
+    }
+    to{
+       transform: translateX(calc(100vw - 100px)) scale(1, 1) rotateX(0deg);
+    }
+}
